@@ -1,0 +1,49 @@
+body {
+    width: 650px;
+    margin: auto;
+    background-color: #FFD873;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    border-bottom: 3px solid;
+}
+
+#message {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+.game_container {
+    display: grid;
+    grid-template: repeat(3, 160px) / repeat(3, 1fr);
+    grid-gap: 15px;
+    margin: 10px 0;
+}
+
+.square {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 100px;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    transition: background-color .1s linear;
+    cursor: default;
+}
+
+.square:hover {
+    background-color: #a4abd7;
+    box-shadow: 0 0 15px #2E3884;
+}
+
+#restart {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
