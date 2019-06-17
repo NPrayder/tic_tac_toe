@@ -10,6 +10,9 @@ window.onload = function () {
         });
     }
 
+    const restartButton = document.getElementById('restart');
+    restartButton.addEventListener('click', startGame);
+
     startGame();
 };
 
