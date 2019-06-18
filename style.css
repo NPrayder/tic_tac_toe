@@ -59,11 +59,12 @@ h1 {
     }
 
     .game_container {
-        grid-template-rows: repeat(3, 120px);
+        grid-template-rows: repeat(3, 100px);
     }
 
     .square {
         font-size: 75px;
+	line-height: 1.3;
         transition: none;
     }
 

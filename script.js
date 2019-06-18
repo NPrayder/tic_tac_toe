@@ -3,19 +3,17 @@ let winner = null;
 let isDraw = false;
 
 //Function add on click listener for each cell and initialize the board
-window.onload = function () {
+window.addEventListener('DOMContentLoaded', () => {
     const squares = document.querySelectorAll('.square');
     squares.forEach(element => {
-        element.addEventListener('click', function () {
-            nextMove(element);
-        });
+        element.addEventListener('click', () => nextMove(element));
     });
 
     const restartButton = document.getElementById('restart');
     restartButton.addEventListener('click', startGame);
 
     startGame();
-};
+});
 
 //Function initialize the board or reset game to play again
 function startGame() {
