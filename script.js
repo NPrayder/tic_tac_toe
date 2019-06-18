@@ -1,14 +1,15 @@
 let turn = 'X';
 let winner = null;
+let isDraw = false;
 
 //Function add on click listener for each cell and initialize the board
 window.onload = function () {
-    const squares = document.getElementsByClassName('square');
-    for (let element of squares) {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(element => {
         element.addEventListener('click', function () {
             nextMove(element);
         });
-    }
+    });
 
     const restartButton = document.getElementById('restart');
     restartButton.addEventListener('click', startGame);
@@ -24,6 +25,7 @@ function startGame() {
 
     turn = 'X';
     winner = null;
+    isDraw = false;
 
     setMessage(`${turn} start the game`);
 }
@@ -35,8 +37,10 @@ function setMessage(msg) {
 
 //Function stop the game if someone already won or change the text color according to the turn
 function nextMove(square) {
-    if (winner !== null) {
+    if (winner) {
         setMessage(`${winner} already won`)
+    } else if (isDraw) {
+        setMessage(`You have a draw`);
     } else if (square.innerText === '') {
         if (turn === 'X') {
             square.style.color = "red";
@@ -55,6 +59,9 @@ function switchTurn() {
     if (checkForWinner(turn)) {
         setMessage(`${turn} wins!!!`);
         winner = turn;
+    } else if (checkForDraw()) {
+        isDraw = true;
+        setMessage(`You have a draw`);
     } else {
         turn = turn === 'X' ? 'O' : 'X';
         setMessage(`${turn}'s turn`);
@@ -76,6 +83,17 @@ function checkForWinner(move) {
     }
 
     return result;
+}
+
+//If all cells have X or O and we don't have winner then we have a draw
+function checkForDraw() {
+    for (let index = 1; index <= 9; index++) {
+        if (!document.getElementById('s' + index).innerText) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 //Check whether the values in the cells are the same
