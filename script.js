@@ -46,7 +46,7 @@ function nextMove(square) {
         square.innerText = turn;
         switchTurn();
     } else {
-        setMessage("This cell is already occupied, select another")
+        setMessage("Choose another cell")
     }
 }
 
